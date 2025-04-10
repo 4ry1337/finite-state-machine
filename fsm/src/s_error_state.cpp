@@ -1,16 +1,16 @@
-
 #include "traffic_light.h"
 #include "traffic_light_state.h"
-#include <iostream>
 
+// ErrorState implementation
 void ErrorState::enter(TrafficLight &light) {
-  std::cout << "Entering Error State" << std::endl;
+  light.log("Entering Error State.");
 }
 
 void ErrorState::exit(TrafficLight &light) {
-  std::cout << "Exiting Error State" << std::endl;
+  light.log("Exiting Error State.");
 }
 
 void ErrorState::update(TrafficLight &light) {
-  light.changeState(std::make_unique<RedState>());
+  light.log("Error State active. Attempting recovery...");
+  // You could transition out of ErrorState here if conditions improve.
 }

@@ -1,15 +1,21 @@
 #include "traffic_light.h"
 #include "traffic_light_state.h"
-#include <iostream>
+#include <chrono>
 
 void YellowState::enter(TrafficLight &light) {
-  std::cout << "Entering Yellow State" << std::endl;
+  light.log("Entering Yellow State.");
 }
 
 void YellowState::exit(TrafficLight &light) {
-  std::cout << "Exiting Yellow State" << std::endl;
+  light.log("Exiting Yellow State.");
 }
 
 void YellowState::update(TrafficLight &light) {
-  light.changeState(std::make_unique<RedState>());
+  static auto startTime = std::chrono::steady_clock::now();
+  auto elapsed = std::chrono::steady_clock::now() - startTime;
+  if (elapsed >= light.config[1]) {
+    light.log("Yellow duration complete, transitioning to Red.");
+    startTime = std::chrono::steady_clock::now();
+    light.changeState(std::make_unique<RedState>());
+  }
 }
