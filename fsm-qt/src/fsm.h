@@ -3,8 +3,6 @@
 
 #include <QMainWindow>
 
-enum TrafficLightState { GREEN, YELLOW, RED };
-
 class fsm : public QMainWindow {
   Q_OBJECT
 
