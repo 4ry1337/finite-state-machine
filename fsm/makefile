@@ -1,6 +1,6 @@
 TARGET_EXEC := fsm
 
-CXX ?= clang++
+CXX := clang++
 CXXFLAGS := -std=c++20 -Wall -Wextra -O2
 LDFLAGS :=
 
