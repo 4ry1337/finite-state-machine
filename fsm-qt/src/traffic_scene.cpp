@@ -42,9 +42,9 @@ void TrafficScene::setupPedestrianLights() {
 
 void TrafficScene::setupCrosswalks() {
     // horizontal crosswalks
-    addItem(new CrosswalkItem(QPointF(305, 280), true));
+    addItem(new CrosswalkItem(QPointF(305, 270), true));
     addItem(new CrosswalkItem(QPointF(305, 510), true));
     // vertical crosswalks
-    addItem(new CrosswalkItem(QPointF(280, 305), false));
+    addItem(new CrosswalkItem(QPointF(270, 305), false));
     addItem(new CrosswalkItem(QPointF(510, 305), false));
 }

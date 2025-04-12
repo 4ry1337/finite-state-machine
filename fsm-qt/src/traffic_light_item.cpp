@@ -33,22 +33,24 @@ void TrafficLightItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
         painter->drawRect(5, 45, 10, 10);
     } else {
         // Standard vehicle traffic light
-        painter->setBrush(Qt::red);
+        painter->setBrush(currentColor == Qt::red ? Qt::red : Qt::darkRed);
         painter->drawEllipse(5, 5, 10, 10);
-        painter->setBrush(Qt::yellow);
+        painter->setBrush(currentColor == Qt::yellow ? Qt::yellow : Qt::darkYellow);
         painter->drawEllipse(5, 25, 10, 10);
-        painter->setBrush(Qt::green);
+        painter->setBrush(currentColor == Qt::green ? Qt::green : Qt::darkGreen);
         painter->drawEllipse(5, 45, 10, 10);
     }
 }
 
 void TrafficLightItem::mousePressEvent(QGraphicsSceneMouseEvent *event) {
     if (pedestrian) {
-        QRectF buttonRect(5, 45, 10, 10);
+        QRectF buttonRect(5, 45, 10, 10); // Match your button location
         if (buttonRect.contains(event->pos())) {
-            buttonPressed = !buttonPressed;
-            currentColor = (currentColor == Qt::red) ? Qt::green : Qt::red;
+            buttonPressed = true;
+            qDebug() << "Pedestrian button pressed";
             update();
         }
     }
 }
+
+

@@ -13,9 +13,10 @@ public:
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
 
-private:
+public:
     Qt::Orientation orientation;
     bool pedestrian;
     QColor currentColor;
+    bool isPedestrian() const { return pedestrian; }
     bool buttonPressed = false;
 };

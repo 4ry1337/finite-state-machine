@@ -1,11 +1,13 @@
-QT       += core gui
+QT       += core gui #statemachine
 TEMPLATE = app
 TARGET = fsm
 INCLUDEPATH += .
 CONFIG += c++20
 
-SOURCES += $$files(src/*.cpp, true)
-HEADERS += $$files(src/*.h, true)
+SOURCES += $$files(src/*.cpp, true) \
+
+HEADERS += $$files(src/*.h, true) \
+
 TRANSLATIONS += translations/en_US.ts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
