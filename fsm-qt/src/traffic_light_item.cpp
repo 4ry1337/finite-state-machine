@@ -49,8 +49,8 @@ void TrafficLightItem::mousePressEvent(QGraphicsSceneMouseEvent *event) {
     QRectF buttonRect(5, 45, 10, 10); // Match your button location
     if (buttonRect.contains(event->pos())) {
       buttonPressed = true;
-      qDebug() << "Pedestrian button pressed";
-      update();
+        qDebug() << "Pedestrian button pressed at:" << pos();
+        update();
     }
   }
 }

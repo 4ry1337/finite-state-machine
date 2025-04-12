@@ -31,7 +31,16 @@ private:
     QTimer pedestrianCheckTimer;
     QTimer stateTimer;
     QGraphicsTextItem *countdownLabel = nullptr;
+
+    QEvent *nextEvent = new QEvent(QEvent::Type(QEvent::User + 1));
+    QState *nsGreen, *nsYellow, *allRed1, *ewGreen, *ewYellow, *allRed2;
+
+    bool shortenCurrentGreen = false;  // NEW
+
     int secondsRemaining = 0;
+    int currentStateDuration = 10000;
+    int defaultGreenDuration = 10000;
+    int overriddenGreenDuration = -1;
 
     void splitPedestrianLights();
     void updateCountdownLabel();
@@ -40,4 +49,14 @@ private:
 private slots:
     void onCountdownTick();
     void checkPedestrianRequestDuringGreen();
+
+signals:
+    void triggerNSYellow();
+    void triggerAllRed1();
+    void triggerEWGreen();
+    void triggerEWYellow();
+    void triggerAllRed2();
+    void triggerNSGreen();
+
+
 };
