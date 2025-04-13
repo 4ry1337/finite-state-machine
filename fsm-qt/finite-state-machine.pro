@@ -3,9 +3,9 @@ TARGET = fsm
 INCLUDEPATH += .
 CONFIG += c++20
 
-SOURCES += $$files(src/*.cpp, true) \
+SOURCES += $$files(src/*.cpp, true)
 
-HEADERS += $$files(src/*.h, true) \
+HEADERS += $$files(src/*.h, true) 
 
 TRANSLATIONS += translations/en_US.ts
 
