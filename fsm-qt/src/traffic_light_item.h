@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TRAFFIC_LIGHT_ITEM_H
+#define TRAFFIC_LIGHT_ITEM_H
 
 #include <QColor>
 #include <QGraphicsItem>
@@ -22,3 +23,5 @@ public:
   bool isPedestrian() const { return pedestrian; }
   bool buttonPressed = false;
 };
+
+#endif

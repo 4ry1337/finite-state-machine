@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TRAFFIC_SCENE_H
+#define TRAFFIC_SCENE_H
 
 #include <QGraphicsScene>
 
@@ -13,3 +14,5 @@ private:
   void setupPedestrianLights();
   void setupCrosswalks();
 };
+
+#endif
